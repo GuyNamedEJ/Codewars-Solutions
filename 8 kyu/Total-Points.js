@@ -19,15 +19,21 @@
 
 
 function points(games) {
+  // set a variable to hold our points
   let points = 0;
   
+  // for each score in the array, I need to split them at the :
+  // Home Score will be the first score, the away score is the second element. This way works for scores greater 1 digit should it change in the future
   games.map((score) => {
-    let teamScore = parseInt(score[0])
-    let awayScore = parseInt(score[2])
+    let scores = score.split(":")
+    let teamScore = parseInt(scores[0])
+    let awayScore = parseInt(scores[1])
     
-    
+    // if team wins, +3 points
     if(teamScore > awayScore)
       points += 3
+    
+    // if we tie, +1 point
     else if(teamScore === awayScore)
       points += 1
   
